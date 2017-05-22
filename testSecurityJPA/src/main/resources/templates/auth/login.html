@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" 
+	layout:decorator="layouts/main">
+<head>
+	<title>Test Security Demo</title>
+</head>
+<body>
+
+	<div layout:fragment="content">
+	
+		<form name="f" th:action="@{/login}" class="form-signin" method="post">
+			<h2 class="form-signin-heading">Please sign in</h2>
+			<div th:if="${param.errror}" class="alert alert-danger">Invalid
+				username and password</div>
+			<div th:if="${param.logout}" class="alert alert-succes">you have
+				been logged out.</div>
+			<label class="sr-only" for="username">Username</label> 
+			<input type="text" id="username" name="username" class="form-control" placeholder="Username" required="true"></input> 
+			<label class="sr-only" for="password">Password</label> 
+			<input type="text" id="password" name="password" class="form-control" placeholder="Password" required="true"></input>
+			<div class="checkbox">
+				<label> 
+					<input id="remember-me" name="rememberme" type="checkbox">Remember me</input>
+				</label>
+			</div>
+			<button class="btn btn-lg btn-primary btn-block">Sig in</button>
+		</form>
+	</div>
+</body>
+</html>
